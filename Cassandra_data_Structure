@@ -1,0 +1,28 @@
+-- Create the keyspace
+CREATE KEYSPACE downloads
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}
+AND durable_writes = true;
+
+CREATE KEYSPACE IF NOT EXISTS downloads WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+CREATE TABLE IF NOT EXISTS downloads.package_counts (
+    package text,
+    count bigint,
+    PRIMARY KEY (package)
+);
+CREATE KEYSPACE IF NOT EXISTS downloads WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+CREATE TABLE IF NOT EXISTS downloads.top_package (
+    package text,
+    count bigint,
+    PRIMARY KEY (package)
+);
+CREATE KEYSPACE IF NOT EXISTS downloads WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+CREATE TABLE IF NOT EXISTS downloads.country_counts (
+    country text,
+    count bigint,
+    PRIMARY KEY (country)
+);
+CREATE KEYSPACE IF NOT EXISTS downloads WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+CREATE TABLE IF NOT EXISTS downloads.ggplot2_downloads (
+    total_downloads bigint,
+    PRIMARY KEY ((total_downloads))
+);
